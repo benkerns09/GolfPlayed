@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
-    <script src="index.js"></script>
 </head>
 <body>
+
+    <img id="myImage"/>
 
     <div class="container">
 
         <div class="row">
             <div class="col-md-12">
-                <h1>Course Tinder</h1>
-                <textarea id="mainText" placeholder="Enter text here ..."></textarea>
+                <h1>Logo or Image?</h1>
+                <!--<textarea id="mainText" placeholder="Enter text here ..."></textarea>-->
             </div>
         </div>
 
@@ -29,21 +30,21 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row1">
             <div class="col-md-6">
-                <button id="submitBtn" onclick="submitClick()">><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                <button id="submitBtn" onclick="submitClick()" class="submit"><</button>
             </div>
             <div class="col-md-6">
-                <button>></button>
+                <button id="submitBtn" onclick="submitClick()" class="submit2">></button>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row2">
             <div class="col-md-6">
-                <button>Delete</button>
+                <button class="undo">Undo</button>
             </div>
             <div class="col-md-6">
-                <button id="remove">Undo</button>
+                <button class="delete">Delete</button>
             </div>
         </div>
 
@@ -64,10 +65,9 @@
       firebase.initializeApp(config);
     </script>
     
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="index.js"></script>
-
-
-
 
 
 </body>
