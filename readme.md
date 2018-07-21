@@ -9,4 +9,18 @@
     <li>James Gottschalk</li>
 </ul>
 
+<h3>Technology Utilized</h3>
+<ul>
+    <li>React</li>
+    <li>Firebase</li>
+    <li>Node</li>
+    <li>Express</li>
+    <li>.</li>
+    <li>.</li>
+</ul>
+
+
+
+
+
 
