@@ -1,0 +1,22 @@
+.leftbutton {
+    float: left;
+    width: 10%;
+    height: 250px;
+    margin-left: 25px;
+    margin-top: 150px;
+    font-size: 18pt;
+}
+
+.rightbutton {
+    float: right;
+    width: 10%;
+    height: 250px;
+    margin-right: 25px;
+    margin-top: 150px;
+    font-size: 18pt;
+}
+
+.picture {
+    width: 90%;
+    height: 100%;
+}
