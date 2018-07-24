@@ -16,3 +16,4 @@ var fileRef = firebase.storage().ref('20171110_100240_101.jpg');
 fileRef.getDownloadURL().then((url)=>{
     myImage.src = url;//assuming you have an <img /> tag in your html with id "myImage"
 });
+
