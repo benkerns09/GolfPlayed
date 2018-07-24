@@ -5,8 +5,10 @@ import Buttons from './Components/Buttons';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Buttons />
+
+      <div className="App">      
+        <LandingPage />
+
       </div>
     );
   }
