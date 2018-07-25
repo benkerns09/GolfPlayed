@@ -4,17 +4,17 @@ import '../../src/Buttons.css';
 class Buttons extends Component {
     render() {
         return (
-            <div>
-                <div className="SwipeButtons">
-                    <button className="leftbutton" onClick="LEFTLOGO"> ⬅ LOGO </button>
-                    <button className="rightbutton" onClick="RIGHTIMAGE"> IMAGE ➡ </button>
+            <div className="parentdiv">
+                <div className="container-fluid top">
+                    <button className=".col-sm-2 .col-xl-6 leftbutton" onClick="LEFTLOGO"> ⬅ LOGO </button>
+                    <button className=".col-sm-2 .col-xl-6 rightbutton" onClick="RIGHTIMAGE"> IMAGE ➡ </button>
                 </div>
                 
 
                
-                <div className="OtherButtons">
-                    <button className="undo" onClick="UNDO">Undo</button>
-                    <button className="delete" onClick="DELETEIMAGE">Delete</button>
+               <div className="container bottom">
+                    <button className=".col-sm-6 .col-xl-3 undo" onClick="UNDO">UNDO</button>
+                    <button className=".col-sm-6 .col-xl-3 delete" onClick="DELETEIMAGE">DELETE</button>
                 </div>
                 
         </div>
