@@ -1,10 +1,32 @@
+
+.top {
+    min-height: 80vh !important;
+    height: 80vh;
+    opacity: 0.5;
+    
+    
+}
+.bottom {
+    width: 100%;
+    min-height: 20vh;
+    height: 20vh;
+    bottom: 0px;
+    display: inline-block;
+    opacity: 0.5;
+    
+}
+
 .leftbutton {
     float: left;
-    width: 10%;
-    height: 250px;
-    margin-left: 25px;
-    margin-top: 150px;
+    min-height: 80vh !important;
+    height: 80vh;
+    margin-left: 4px;
     font-size: 18pt;
+    width: 48%;
+    z-index: 400;
+    background: transparent;
+    border: none !important;
+    outline: none;
 }
 .leftbutton:hover {
     background-color:slategray;
@@ -13,32 +35,53 @@
 
 .rightbutton {
     float: right;
-    width: 10%;
-    height: 250px;
-    margin-right: 25px;
-    margin-top: 150px;
+    min-height: 80vh !important;
+    height: 80vh;
+    margin-right: 4px;
     font-size: 18pt;
+    width: 48%;
+    z-index: 400;
+    background: transparent;
+    border: none !important;
+    outline: none;
 }
 .rightbutton:hover {
     background-color:slategray;
     cursor: pointer;
 }
 
+
+
 .undo {
-    width: 50px;
-    height: 40px;
     position: relative;
+    float: left;
+    width: 40%;
+    height: inherit;
+    z-index: 400;
+    background: transparent;
+    border: none !important;
+    outline: none;
+    
 }
 .delete {
-    width: 50px;
-    height: 40px;
+    position: relative;
+    float: right;
+    width: 40%;
+    height: inherit;
+    z-index: 400;
+    background: transparent;
+    border: none !important;
+    outline: none;
+    
 }
 
 .undo:hover {
     cursor:pointer;
+    background-color: lightgreen;
 }
 .delete:hover {
     cursor:pointer;
+    background-color: red;
 }
 
 
