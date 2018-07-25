@@ -82,3 +82,11 @@ h1 {
     font-size: 25px;
     border: 5px solid black;
 }
+
+h2 {
+    color: red;
+}
+
+#list {
+    color: red;
+}

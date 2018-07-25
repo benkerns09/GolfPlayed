@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +12,7 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <!--<div class="imageContainer">
-        <img class="image" id="myImage" />
-    </div>-->
+
     <div class="container">
         
         <div class="row">
@@ -35,10 +33,14 @@
 
         <div class="row1">
             <div class="col-md-6">
-                <button id="submitBtn" onclick="submitClick()" class="submit"><</button>
+                <!--><button id="submitBtn" onclick="submitClick()" class="submit"><</button><-->
+                <input type="text" id="messageInput" />
+                    <button type="button" onclick="addData()">Send message</button>
+                <h2>Messages</h2>
+    
             </div>
             <div class="col-md-6">
-                <button id="submitBtn" onclick="submitClick()" class="submit2">></button>
+                <button type="button" onclick="addData()" class="submit2">></button>
             </div>
         </div>
 
@@ -66,8 +68,14 @@
         messagingSenderId: "277095100919"
       };
       firebase.initializeApp(config);
-    </script>
 
+      var messageLabel = document.getElementById('message');
+      var db = firebase.database();
+      db.ref().on("value", function(snapshot) {
+          console.log(snapshot.val());
+          var object = snapshot.val();
+      });
+    </script>
 
 </body>
 </html>
