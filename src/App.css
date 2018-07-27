@@ -2,4 +2,18 @@
   text-align: center;
 }
 
+.App-title {
+  font-size: 4em;
+  color: red;
+  margin-top: 0px;
+}
+
+body {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/golfplayed-733f4.appspot.com/o/20171110_100240_101.jpg?alt=media&token=71e48621-ebbe-4f5d-b41e-525a29a5b827');
+  background-size: cover;
+  max-width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
 

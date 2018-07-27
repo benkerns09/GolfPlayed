@@ -6,8 +6,8 @@ class Buttons extends Component {
         return (
             <div className="parentdiv">
                 <div className="container-fluid top">
-                    <button className=".col-sm-2 .col-xl-6 leftbutton" onClick="LEFTLOGO"> ⬅ LOGO </button>
-                    <button className=".col-sm-2 .col-xl-6 rightbutton" onClick="RIGHTIMAGE"> IMAGE ➡ </button>
+                    <button className=".col-sm-2 .col-xl-6 leftbutton" onClick="LEFTLOGO"> ⬅ LOGO Database </button>
+                    <button className=".col-sm-2 .col-xl-6 rightbutton" onClick="RIGHTIMAGE"> IMAGE Database ➡ </button>
                 </div>
                 
 
