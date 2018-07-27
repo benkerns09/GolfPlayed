@@ -27,5 +27,9 @@ function addData() {
 }
 
 function addLogoData() {
-    var message = messageIn
+    var message = messageInput.value;
+    db.ref().child('logos').push({
+        field: message
+    });
+    messageInput.value = '';
 }

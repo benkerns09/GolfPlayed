@@ -21,7 +21,9 @@
     min-height: 80vh !important;
     height: 80vh;
     margin-left: 4px;
-    font-size: 18pt;
+    font-size: 30pt;
+    font-weight: bolder;
+    color: red;
     width: 48%;
     z-index: 400;
     background: transparent;
@@ -29,7 +31,7 @@
     outline: none;
 }
 .leftbutton:hover {
-    background-color:slategray;
+    background-color: yellow;
     cursor: pointer;
 }
 
@@ -38,7 +40,9 @@
     min-height: 80vh !important;
     height: 80vh;
     margin-right: 4px;
-    font-size: 18pt;
+    font-size: 30pt;
+    font-weight: bolder;
+    color: red;
     width: 48%;
     z-index: 400;
     background: transparent;
@@ -46,7 +50,7 @@
     outline: none;
 }
 .rightbutton:hover {
-    background-color:slategray;
+    background-color: blue;
     cursor: pointer;
 }
 
@@ -61,6 +65,9 @@
     background: transparent;
     border: none !important;
     outline: none;
+    color: red;
+    font-size: 15pt;
+    font-weight: bolder;
     
 }
 .delete {
@@ -72,6 +79,8 @@
     background: transparent;
     border: none !important;
     outline: none;
+    font-size: 15pt;
+    font-weight: bolder;
     
 }
 
