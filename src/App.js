@@ -98,26 +98,17 @@ class App extends Component {
                 <form>
                   <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange}  value={this.state.username} />
                   <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
-                  <button class="Logo" name="logo" onClick={(e, btn) => this.handleSubmit(e,'logobtn')} value={this.state.currentItem}>Logo</button>
-                  <button class="Image" name="image" onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} value={this.state.currentItem}>Image</button>
                 </form>
+
           </section>
-          <section className='display-item'>
-              <div className="wrapper">
-                <ul>
-                  {this.state.items.map((item) => {
-                    return (
-                      <li key={item.id}>
-                        <h3>{item.title}</h3>
-                        <p>brought by: {item.user}
-                          <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
-                        </p>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-          </section>
+          <div class='row'>
+            <button class="Logo" name="logo" onClick={(e, btn) => this.handleSubmit(e,'logobtn')} value={this.state.currentItem}>Logo</button>
+            <button class="Image" name="image" onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} value={this.state.currentItem}>Image</button>
+          </div>
+          <div class="row2">
+            <button class="Delete" name="delete">Delete</button>
+            <button class="Undo" name="undo">Undo</button>
+          </div>
         </div>
       </div>
     );
