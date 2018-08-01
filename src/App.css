@@ -1,26 +1,104 @@
-.App {
-  text-align: center;
-}
-
-.App-title {
-  font-size: 4em;
-  color: red;
-  margin-top: 0px;
-}
-
-body {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/golfplayed-733f4.appspot.com/o/20171110_100240_101.jpg?alt=media&token=71e48621-ebbe-4f5d-b41e-525a29a5b827');
-  background-size: cover;
-  max-width: 100%;
-  margin: 0px;
-  padding: 0px;
-}
-
 h1 {
   text-align: center;
   font-size: 90px;
   color: red;
   font-weight: 900;
 }
+
+.Logo {
+  float: left;
+  min-height: 80vh !important;
+  height: 80vh;
+  margin-left: 4px;
+  font-size: 30pt;
+  font-weight: bolder;
+  color: red;
+  width: 48%;
+  z-index: 400;
+  background: transparent;
+  border: none !important;
+  outline: none;
+}
+
+.Logo:hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+
+.Image {
+  float: right;
+  min-height: 80vh !important;
+  height: 80vh;
+  margin-right: 4px;
+  font-size: 30pt;
+  font-weight: bolder;
+  color: red;
+  width: 48%;
+  z-index: 400;
+  background: transparent;
+  border: none !important;
+  outline: none;
+}
+
+.Image:hover {
+  background-color: blue;
+  cursor: pointer;
+}
+
+.Delete {
+  position: relative;
+  float: right;
+  width: 40%;
+  height: inherit;
+  z-index: 400;
+  background: transparent;
+  border: none !important;
+  outline: none;
+  font-size: 15pt;
+  font-weight: bolder;
+  
+}
+
+.Delete:hover {
+  cursor:pointer;
+  background-color: red;
+}
+
+.Undo {
+  position: relative;
+  float: left;
+  width: 40%;
+  height: inherit;
+  z-index: 400;
+  background: transparent;
+  border: none !important;
+  outline: none;
+  color: red;
+  font-size: 15pt;
+  font-weight: bolder;
+}
+
+.Undo:hover {
+  cursor:pointer;
+  background-color: lightgreen;
+}
+
+.row2 {
+  width: 100%;
+  min-height: 20vh;
+  height: 20vh;
+  bottom: 0px;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/*.top {
+  min-height: 80vh !important;
+  height: 80vh;
+  opacity: 0.5;
+}*/
+
+
+
 
 
