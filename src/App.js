@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import firebase from './firebase.js';
+import MyImage from './myImage.js';
+import axios from 'axios';
+
+// var fileRef = firebase.storage().ref('20171110_100240_4.jpg');
+//   fileRef.getDownloadURL().then((url)=>{
+//   var myImage = myImage.src = url;//assuming you have an <img /> tag in your html with id "myImage"
+// });
+
+// const goose = firebase.storage().ref('20171110_100240_4.jpg')
+//   goose.getDownloadURL().then(('https://firebasestorage.googleapis.com/v0/b/golfplayed-733f4.appspot.com/o/20171110_100240_1.jpg?alt=media&token=0c94fbfb-758b-49a9-9b7f-45625ccd8fcb') {
+//     const gooseImg.src = url;
+//   })
 
 class App extends Component {
   constructor() {
@@ -9,11 +21,32 @@ class App extends Component {
       currentItem: '',
       username: '',
       items: [],
-      logos: []
+      logos: [],
+      selectedFile: null
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleImage = this.handleImage.bind(this);
   }
+
+  // fileSelectedHandler = event => {
+  //   this.setState({
+  //     selectedFile: event.target.files[0]
+  //   })
+  // }
+
+  // fileUploadHandler = () => {
+  //   const fd = new FormData();
+  //   fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+  //   axios.post('https://us-central1-golfplayed-733f4.cloudfunctions.net/uploadFile', fd, {
+  //     onUploadProgress: progressEvent => {
+  //       console.log('Upload Progress: ' + (progressEvent.loaded / progressEvent.total * 100) + '%')
+  //     }
+  //   })
+  //     .then(res => {
+  //       console.log(res);
+  //     });
+  // }
 
   handleChange(e) {
     console.log(e.target.name);
@@ -48,6 +81,14 @@ class App extends Component {
     });
   }
   
+  // handleImage() {
+  //   const fileRef = firebase.storage().ref('20171110_100240_1.jpg');
+  //   fileRef.getDownloadURL().then((url)=>{
+  //     myImage.src = url;
+  //   });
+  // }
+
+
   componentDidMount() {
     const itemsRef = firebase.database().ref('images');
     const logosRef = firebase.database().ref('logos');
@@ -80,34 +121,40 @@ class App extends Component {
       });
     });
   }
-  removeItem(itemId) {
-    const itemRef = firebase.database().ref(`/items/${itemId}`);
-    itemRef.remove();
-  }
+
   render() {
     return (
       <div className='app'>
         <header>
             <div className="wrapper">
               <h1>Logo or Image?</h1>
-                             
+              <MyImage />    
             </div>
         </header>
         <div className='container'>
+          <div clssName="row">
+          </div>
           <section className='add-item'>
                 <form>
                   <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange}  value={this.state.username} />
                   <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
+                  <input
+                    style={{display: 'none'}}
+                    type="file"
+                    onChange={this.fileSelectedHandler}
+                    ref={fileInput => this.fileInput = fileInput}/>
+                  <button onClick={() => this.fileInput.click()}>Pick File</button>
+                  <button onClick={this.fileUploadHandler}>Upload</button>
                 </form>
 
           </section>
-          <div class='row'>
-            <button class="Logo" name="logo" onClick={(e, btn) => this.handleSubmit(e,'logobtn')} value={this.state.currentItem}>Logo</button>
-            <button class="Image" name="image" onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} value={this.state.currentItem}>Image</button>
+          <div className='row'>
+            <button className="Logo" name="logo" onClick={(e, btn) => this.handleSubmit(e,'logobtn')} value={this.state.currentItem}>Logo</button>
+            <button className="Image" name="image" onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} value={this.state.currentItem}>Image</button>
           </div>
-          <div class="row2">
-            <button class="Delete" name="delete">Delete</button>
-            <button class="Undo" name="undo">Undo</button>
+          <div className="row2">
+            <button className="Delete" name="delete">Delete</button>
+            <button className="Undo" name="undo">Undo</button>
           </div>
         </div>
       </div>
