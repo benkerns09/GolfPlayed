@@ -1,6 +1,6 @@
-var mainText = document.getElementById("mainText");
-var submitBtn = document.getElementById("submitBtn");
-var myImage = document.getElementById("myImage");
+// var mainText = document.getElementById("mainText");
+// var submitBtn = document.getElementById("submitBtn");
+// var myImage = document.getElementById("myImage");
 
 /*function submitClick() {
 
@@ -12,24 +12,24 @@ var myImage = document.getElementById("myImage");
 
 }*/
 
-var fileRef = firebase.storage().ref('20171110_100240_101.jpg');
-fileRef.getDownloadURL().then((url)=>{
-    myImage.src = url;//assuming you have an <img /> tag in your html with id "myImage"
-});
+// var fileRef = firebase.storage().ref('20171110_100240_4.jpg');
+// fileRef.getDownloadURL().then((url)=>{
+//     myImage.src = url;//assuming you have an <img /> tag in your html with id "myImage"
+// });
 
-//Save data to firebase
-function addData() {
-    var message = messageInput.value;
-    db.ref().child('images').push({
-        field: message
-    });
-    messageInput.value = '';
-}
+// //Save data to firebase
+// function addData() {
+//     var message = messageInput.value;
+//     db.ref().child('images').push({
+//         field: message
+//     });
+//     messageInput.value = '';
+// }
 
-function addLogoData() {
-    var message = messageInput.value;
-    db.ref().child('logos').push({
-        field: message
-    });
-    messageInput.value = '';
-}
+// function addLogoData() {
+//     var message = messageInput.value;
+//     db.ref().child('logos').push({
+//         field: message
+//     });
+//     messageInput.value = '';
+// }
