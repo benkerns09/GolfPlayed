@@ -1,51 +1,70 @@
-var createError = require('http-errors');
 var express = require('express');
-const handlebars = require('handlebars');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var LocalStrategy = require('passport-local').Strategy;
-const dotenv = require('dotenv');
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://esviryggtkukib:29e1c9a47f95b2f297df95300c0fdc71754bcb6f380ade775791cc74c436d47f@ec2-174-129-247-1.compute-1.amazonaws.com:5432/dbb0e3u4uipnum');
+var passport = require('passport');
+var Strategy = require('passport-local').Strategy;
+var db = require('./db');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const setupAuth = require('./auth');
 
-dotenv.load();
+passport.use(new Strategy(
+  function(username, password, cb) {
+    db.users.findByUsername(username, function(err, user) {
+      if (err) { return cb(err); }
+      if (!user) { return cb(null, false); }
+      if (user.password != password) { return cb(null, false); }
+      return cb(null, user);
+    });
+  }));
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user.id);
+});
+  
+passport.deserializeUser(function(id, cb) {
+  db.users.findById(id, function (err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'secret', resave: false, saveUninitialized: false }));
 
-setupAuth(app);
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(passport.initialize());
+app.use(passport.session());
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+app.get('/',
+  function(req, res) {
+    res.render('login', { user: req.user });
+  });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+/* app.get('/login',
+  function(req, res){
+    res.render('asdf');
+  }); */ 
+  
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('http://localhost:3001');
+  });
+  
+app.get('/logout',
+  function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.get('/profile',
+  require('connect-ensure-login').ensureLoggedIn(),
+  function(req, res){
+    res.render('profile', { user: req.user });
+  }); 
 
-module.exports = app;
+app.listen(3000);
