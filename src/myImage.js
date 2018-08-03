@@ -11,7 +11,7 @@ class MyImage extends Component {
     state = {
         myImgURL: ''
     }
-    componentDidMount() {
+    componentWillMount() {
        let myImage =  firebase.storage().ref('20171110_100240_4.jpg')
             myImage.getDownloadURL().then((url)=> {
             myImage.src = url;
@@ -24,7 +24,7 @@ class MyImage extends Component {
         return (
             <div>
                 {/* <h1>{myImage.src}</h1> */}
-                <img src={this.state.myImgURL} style={{width: '200px', height: '200px'}} />
+                <img src={this.state.myImgURL} style={{width: '100%', height: '100%'}} />
             </div>
         )
         
