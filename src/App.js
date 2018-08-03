@@ -132,7 +132,7 @@ class App extends Component {
             </div>
         </header>
         <div className='container'>
-          <div clssName="row">
+          <div className="row">
           </div>
           <section className='add-item'>
                 <form>
