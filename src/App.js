@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import firebase from './firebase.js';
 import MyImage from './myImage.js';
-import axios from 'axios';
+// import axios from 'axios';
 
 // var fileRef = firebase.storage().ref('20171110_100240_4.jpg');
 //   fileRef.getDownloadURL().then((url)=>{
@@ -19,13 +19,13 @@ class App extends Component {
     super();
     this.state = {
       currentItem: '',
-      username: '',
-      items: [],
-      logos: [],
-      selectedFile: null
+      // username: '',
+      // items: [],
+      // logos: [],
+      // selectedFile: null
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleImage = this.handleImage.bind(this);
   }
 
@@ -58,12 +58,12 @@ class App extends Component {
   handleSubmit(e, btn) {
     e.preventDefault();
     const btnName = btn
-    const itemsRef = firebase.database().ref('images');
+    const imageRef = firebase.database().ref('images');
     const logosRef = firebase.database().ref('logos');
 
     const item = {
       url: this.state.currentItem,
-      user: this.state.username
+      // user: this.state.username
     }
     
 
@@ -72,13 +72,13 @@ class App extends Component {
     }
 
     if (btnName === 'imagebtn') {
-      itemsRef.push(item);
+      imageRef.push(item);
     }
     
-    this.setState({
-      currentLogo: '',
-      username: ''
-    });
+    // this.setState({
+    //   currentLogo: '',
+    //   username: ''
+    // });
   }
   
   // handleImage() {
@@ -90,36 +90,36 @@ class App extends Component {
 
 
   componentDidMount() {
-    const itemsRef = firebase.database().ref('images');
-    const logosRef = firebase.database().ref('logos');
-    logosRef.on('value', (snapshot) => {
-      let logos = snapshot.val();
-      let newState = [];
-      for (let logo in logos) {
-        newState.push({
-          id: logo,
-          title: logos[logo].logo,
-        });
-      }
-      this.setState({
-        logos: newState
-      });
-    });
+    const imageRef = firebase.database().ref('images');
+    // const logosRef = firebase.database().ref('logos');
+    // logosRef.on('value', (snapshot) => {
+    //   let logos = snapshot.val();
+    //   let newState = [];
+    //   for (let logo in logos) {
+    //     newState.push({
+    //       id: logo,
+    //       title: logos[logo].logo,
+    //     });
+    //   }
+    //   this.setState({
+    //     logos: newState
+    //   });
+    // });
 
-    itemsRef.on('value', (snapshot) => {
-      let items = snapshot.val();
-      let newState = [];
-      for (let item in items) {
-        newState.push({
-          id: item,
-          title: items[item].title,
-          user: items[item].user
-        });
-      }
-      this.setState({
-        items: newState
-      });
-    });
+    // imageRef.on('value', (snapshot) => {
+    //   let items = snapshot.val();
+    //   let newState = [];
+    //   for (let item in items) {
+    //     newState.push({
+    //       id: item,
+    //       title: items[item].title,
+    //       user: items[item].user
+    //     });
+    //   }
+    //   this.setState({
+    //     items: newState
+    //   });
+    // });
   }
 
   render() {
@@ -127,35 +127,32 @@ class App extends Component {
       <div className='app'>
         <header>
             <div className="wrapper">
-              <h1>Logo or Image?</h1>
-              <MyImage />    
+              <h1>Logo or Image?</h1>    
             </div>
         </header>
         <div className='container'>
-          <div className="row">
-          </div>
-          <section className='add-item'>
+          {/* <section className='add-item'> */}
                 <form>
-                  <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange}  value={this.state.username} />
-                  <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
-                  <input
+                  {/* <input type="text" name="username" onChange={this.handleChange}  value={this.state.username} /> */}
+                  <input type="text" name="currentItem" onChange={this.handleChange} value={this.state.currentItem} />
+                </form>
+                  {/* <input
                     style={{display: 'none'}}
                     type="file"
                     onChange={this.fileSelectedHandler}
-                    ref={fileInput => this.fileInput = fileInput}/>
-                  <button onClick={() => this.fileInput.click()}>Pick File</button>
-                  <button onClick={this.fileUploadHandler}>Upload</button>
-                </form>
+                    ref={fileInput => this.fileInput = fileInput}/> */}
+                  {/* <button onClick={() => this.fileInput.click()}>Pick File</button> */}
+                  {/* <button onClick={this.fileUploadHandler}>Upload</button> */}
+                
 
-          </section>
-          <div className='row'>
-            <button className="Logo" name="logo" onClick={(e, btn) => this.handleSubmit(e,'logobtn')} value={this.state.currentItem}>Logo</button>
-            <button className="Image" name="image" onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} value={this.state.currentItem}>Image</button>
-          </div>
-          <div className="row2">
-            <button className="Delete" name="delete">Delete</button>
-            <button className="Undo" name="undo">Undo</button>
-          </div>
+          {/* </section> */}
+          
+          <MyImage />
+          <button className="Logo" name="logo" onClick={(e, btn) => this.handleSubmit(e,'logobtn')} value={this.state.currentItem}>Logo</button>
+          <button className="Image" name="image" onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} value={this.state.currentItem}>Image</button>
+          <button className="Delete" name="delete">Delete</button>
+          <button className="Undo" name="undo">Undo</button>
+          
         </div>
       </div>
     );
