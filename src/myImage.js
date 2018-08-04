@@ -5,26 +5,18 @@ import firebase from './firebase';
 //     myImage.getDownloadURL().then((url)=> {
 //         myImage.src = url;
 //     });
-
+// var links = [
+//     '20171110_100240_16.jpg',
+//     '20171110_100240_16.jpg',
+//     '20171110_100240_21.jpg'
+// ];
 
 class MyImage extends Component {
-    state = {
-        myImgURL: ''
-    }
-    componentWillMount() {
-       let myImage =  firebase.storage().ref('20171110_100240_4.jpg')
-            myImage.getDownloadURL().then((url)=> {
-            myImage.src = url;
-            this.setState({myImgURL : url})
-        })
-        
-    }
-
     render() {  
         return (
             <div>
                 {/* <h1>{myImage.src}</h1> */}
-                <img className="actualpic" src={this.state.myImgURL} />
+                <img className="actualpic" src={this.props.image} />
             </div>
         )
         
