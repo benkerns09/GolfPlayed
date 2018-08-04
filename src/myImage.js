@@ -12,7 +12,7 @@ class MyImage extends Component {
         myImgURL: ''
     }
     componentWillMount() {
-       let myImage =  firebase.storage().ref('20171110_100240_4.jpg')
+       let myImage =  firebase.storage().ref('20171110_100240_1.jpg')
             myImage.getDownloadURL().then((url)=> {
             myImage.src = url;
             this.setState({myImgURL : url})

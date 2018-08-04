@@ -134,8 +134,8 @@ class App extends Component {
           <div className='container'>
             <section className='add-item'>
               <form>
-                <input type="text" name="username" onChange={this.handleChange}  value={this.state.username} />
-                <input type="text" name="currentItem" onChange={this.handleChange} value={this.state.currentItem} />
+                <input type="text" className="inputBox" name="username" onChange={this.handleChange}  value={this.state.username} />
+                <input type="text" className="inputBox" name="currentItem" onChange={this.handleChange} value={this.state.currentItem} />
               </form>
               {/* <input
                 style={{display: 'none'}}

@@ -8,6 +8,11 @@ h1 {
   color: red;
   font-weight: 900;
 }
+
+.inputBox {
+  border-width:0px;
+  border:none;
+}
 .actualpic {
   position: absolute;
   width: 100%;
