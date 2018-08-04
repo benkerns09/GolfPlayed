@@ -130,31 +130,19 @@ class App extends Component {
               <h1>Logo or Image?</h1>    
             </div>
         </header>
-        <div className='container'>
-          {/* <section className='add-item'> */}
-                <form>
-                  {/* <input type="text" name="username" onChange={this.handleChange}  value={this.state.username} /> */}
-                  <input type="text" name="currentItem" onChange={this.handleChange} value={this.state.currentItem} />
-                </form>
-                  {/* <input
-                    style={{display: 'none'}}
-                    type="file"
-                    onChange={this.fileSelectedHandler}
-                    ref={fileInput => this.fileInput = fileInput}/> */}
-                  {/* <button onClick={() => this.fileInput.click()}>Pick File</button> */}
-                  {/* <button onClick={this.fileUploadHandler}>Upload</button> */}
-                
 
-          {/* </section> */}
-          
+        
           <MyImage />
-          <button className="Logo" name="logo" onClick={(e, btn) => this.handleSubmit(e,'logobtn')} value={this.state.currentItem}>Logo</button>
-          <button className="Image" name="image" onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} value={this.state.currentItem}>Image</button>
-          <button className="Delete" name="delete">Delete</button>
-          <button className="Undo" name="undo">Undo</button>
-          
+          <div className="topButtons">
+            <button className="Logo" name="logo" onClick={(e, btn) => this.handleSubmit(e,'logobtn')} value={this.state.currentItem}>Logo</button>
+            <button className="Image" name="image" onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} value={this.state.currentItem}>Image</button>
+          </div>  
+          <div className="bottomButtons">  
+            <button className="Delete" name="delete">Delete</button>
+            <button className="Undo" name="undo">Undo</button>
+          </div>
         </div>
-      </div>
+      
     );
   }
 }
