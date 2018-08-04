@@ -12,5 +12,5 @@ render((
     </BrowserRouter>
 ), document.getElementById('root'));
 
-/* ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker(); */
+// ReactDOM.render(<App />, document.getElementById('root'));
+// registerServiceWorker();

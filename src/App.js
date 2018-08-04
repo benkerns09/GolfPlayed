@@ -16,18 +16,24 @@ import MyImage from './myImage.js';
 //     const gooseImg.src = url;
 //   })
 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentItem: '',
+      currentItem: '20171110_100240_4.jpg',
       // username: '',
       // items: [],
       // logos: [],
       // selectedFile: null
+      links: [
+        '20171110_100240_4.jpg',
+        '20171110_100240_31.png',
+        '20171110_100240_21.jpg'
+      ],
     }
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleImage = this.handleImage.bind(this);
   }
 
@@ -51,10 +57,14 @@ class App extends Component {
   // }
 
   handleChange(e) {
-    console.log(e.target.name);
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    // console.log(e.target.name);
+    // this.setState({
+    //   [e.target.name]: e.target.value
+    // });
+    // const selectedFile;
+    // this.handleSubmit(e) {
+    //   selectedFile = e.target.files[0];
+    // }
   }
 
   handleSubmit(e, btn) {
@@ -62,12 +72,20 @@ class App extends Component {
     const btnName = btn
     const imageRef = firebase.database().ref('images');
     const logosRef = firebase.database().ref('logos');
+    // let myImage =  firebase.storage().ref('20171110_100240_4.jpg')
+    // myImage.getDownloadURL().then((url)=> {
+    // myImage = url;
+    // this.setState({myImgURL : url})
 
     const item = {
-      url: this.state.currentItem,
+      url: this.state.currentUrl,
       // user: this.state.username
     }
     
+    // for (var i = 0; i<3; i++) {
+    //   const myImage = firebase.storage().ref([links[0]]);
+    //   return links;
+    // }
 
     if (btnName === 'logobtn') {
       logosRef.push(item);
@@ -77,10 +95,40 @@ class App extends Component {
       imageRef.push(item);
     }
     
+    this.setState({
+      currentItem: this.getNextImage()
+    })
     // this.setState({
     //   currentLogo: '',
     //   username: ''
     // });
+  }
+
+  getNextImage() {
+    const oldurl = this.state.currentItem;
+    const state = {...this.state};
+    console.log(state.links)
+
+    state.links.forEach((link, i) => {
+      console.log(oldurl, state.links[i])
+      if (oldurl === link) {
+        state.links.splice(i, 1);
+        console.log('found', oldurl)
+      }
+    });
+    console.log(state.links)
+
+    this.setState(state);
+
+    let myImage =  firebase.storage().ref(this.state.currentItem)
+        myImage.getDownloadURL().then((url)=> {
+        myImage.src = url;
+        this.setState({currentUrl: url})
+    })
+
+    const newURL = state.links[0];
+
+    return newURL;
   }
   
   // handleImage() {
@@ -92,7 +140,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    const imageRef = firebase.database().ref('images');
+    // const imageRef = firebase.database().ref('images');
     // const logosRef = firebase.database().ref('logos');
     // logosRef.on('value', (snapshot) => {
     //   let logos = snapshot.val();
@@ -122,7 +170,16 @@ class App extends Component {
     //     items: newState
     //   });
     // });
+    
   }
+
+  componentWillMount() {
+    let myImage =  firebase.storage().ref(this.state.currentItem)
+         myImage.getDownloadURL().then((url)=> {
+         myImage.src = url;
+         this.setState({currentUrl : url})
+     })
+ }
 
   render() {
     return (
@@ -134,8 +191,8 @@ class App extends Component {
           <div className='container'>
             <section className='add-item'>
               <form>
-                <input type="text" name="username" onChange={this.handleChange}  value={this.state.username} />
-                <input type="text" name="currentItem" onChange={this.handleChange} value={this.state.currentItem} />
+                {/* <input type="text" name="username" onChange={this.handleChange}  value={this.state.username} /> */}
+                {/* <input type="text" name="currentItem" onChange={this.handleChange} value={this.state.currentItem} /> */}
               </form>
               {/* <input
                 style={{display: 'none'}}
@@ -149,11 +206,20 @@ class App extends Component {
       </header>
 
         
-          <MyImage />
+          <MyImage image={this.state.currentUrl} />
           <div className="topButtons">
-            <button className="Logo" name="logo" onClick={(e, btn) => this.handleSubmit(e,'logobtn')} value={this.state.currentItem}>Logo</button>
-            <button className="Image" name="image" onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} value={this.state.currentItem}>Image</button>
-          </div>  
+            <button className="Logo"
+            name="logo" 
+            onClick={(e, btn) => this.handleSubmit(e,'logobtn')}
+            // onChange={this.handleChange} 
+            value={this.state.currentItem}>Logo</button>
+
+            <button className="Image" 
+            name="image" 
+            onClick={(e, btn) => this.handleSubmit(e,'imagebtn')} 
+            value={this.state.currentItem}>Image</button>
+          </div>
+            
           <div className="bottomButtons">  
             <button className="Delete" name="delete">Delete</button>
             <button className="Undo" name="undo">Undo</button>

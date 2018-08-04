@@ -1,10 +1,10 @@
-// const functions = require("firebase-functions");
-// const os = require("os");
-// const path = require("path");
-// const spawn = require("child-process-promise").spawn;
-// const cors = require("cors")({ origin: true });
-// const Busboy = require("busboy");
-// const fs = require("fs");
+const functions = require("firebase-functions");
+const os = require("os");
+const path = require("path");
+const spawn = require("child-process-promise").spawn;
+const cors = require("cors")({ origin: true });
+const Busboy = require("busboy");
+const fs = require("fs");
 
 // const gcconfig = {
 //   projectId: "golfplayed-733f4",

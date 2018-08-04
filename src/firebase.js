@@ -10,6 +10,8 @@ var config = {
   messagingSenderId: "277095100919"
 };
 firebase.initializeApp(config);
+// const storageService = firebase.storage();
+// const storageRef = storageService.ref();
 
 //var db = firebase.database();
 //db.ref().on("value", function(snapshot) {
