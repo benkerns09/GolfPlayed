@@ -16,4 +16,6 @@
   <li>Express</li>
   <li>React</li>
   <li>Node</li>
+  <li>oAuth</li>
+  <li>Passport</li>
 </ul>
