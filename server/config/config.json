@@ -1,0 +1,24 @@
+{
+    "development": {
+      "username": "jgottschalk",
+      "password": null,
+      "database": "dbdos",
+      "host": "localhost",
+      "port": 5432,
+      "dialect": "postgres"
+    },
+    "test": {
+      "username": "root",
+      "password": null,
+      "database": "database_test",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "esviryggtkukib",
+      "password": "29e1c9a47f95b2f297df95300c0fdc71754bcb6f380ade775791cc74c436d47f",
+      "database": "dbb0e3u4uipnum",
+      "host": "ec2-174-129-247-1.compute-1.amazonaws.com",
+      "dialect": "postgres"
+    }
+  }
