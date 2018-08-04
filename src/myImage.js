@@ -24,7 +24,7 @@ class MyImage extends Component {
         return (
             <div>
                 {/* <h1>{myImage.src}</h1> */}
-                <img src={this.state.myImgURL} style={{width: '100%', height: '100%'}} />
+                <img className="actualpic" src={this.state.myImgURL} />
             </div>
         )
         
