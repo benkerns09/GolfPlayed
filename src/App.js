@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import firebase from './firebase.js';
 import MyImage from './myImage.js';
