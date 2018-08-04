@@ -52,11 +52,12 @@ const setupAuth = (app) => {
         req.logout();
         res.redirect('/');
     });
-    app.get('/github/', passport.authenticate('github', {scope: ['email']}));
+
+    app.get('/github', passport.authenticate('github', {scope: ['email']}));
 
     app.get('/github/auth',
         passport.authenticate('github', {
-            successRedirect: '/home',
+            successRedirect: '/',
             failureRedirect: '/login'
         }))
     };
