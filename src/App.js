@@ -27,9 +27,14 @@ class App extends Component {
       // logos: [],
       // selectedFile: null
       links: [
-        '20171110_100240_4.jpg',
         '20171110_100240_31.png',
-        '20171110_100240_21.jpg'
+        '20171110_100240_21.jpg',
+        '20171110_100240_622.jpg',
+        '20171110_100240_620.jpg',
+        '20171110_100240_3.jpg',
+        'rfpzfWvQ.jpeg',
+        'GkifflYg.png',
+        '7t4uefmg.png'
       ],
     }
     this.handleChange = this.handleChange.bind(this);
@@ -186,7 +191,8 @@ class App extends Component {
       <div className='app'>
         <header>
           <div className="wrapper">
-            <h1>Logo or Image?</h1>    
+            <h1>Golf Tinder</h1> 
+            <h5>Logo or Image?</h5>   
           </div>
           <div className='container'>
             <section className='add-item'>
