@@ -1,3 +1,7 @@
+* {
+  max-height: 100vh !important;
+}
+
 h1 {
   text-align: center;
   font-size: 25px;
@@ -10,6 +14,7 @@ h1 {
 }
 .topButtons, .bottomButtons {
   opacity: 0.3;
+  max-height: 45vh;
 }
 .topButtons:hover, .bottomButtons:hover {
   opacity: 0.3;
@@ -17,12 +22,12 @@ h1 {
 .Logo {
   position: relative;
   float: left;
-  min-height: 80vh !important;
+  min-height: 60vh !important;
   margin-left: 4px;
   font-size: 30pt;
   font-weight: bolder;
   color: red;
-  width: 49%;
+  width: 48%;
   background: transparent;
   border: none !important;
   outline: none;
@@ -36,13 +41,12 @@ h1 {
 .Image {
   position: relative;
   float: right;
-  min-height: 80vh !important;
-  height: 80vh;
+  min-height: 60vh !important;
   margin-right: 4px;
   font-size: 30pt;
   font-weight: bolder;
   color: red;
-  width: 49%;
+  width: 48%;
   background: transparent;
   border: none !important;
   outline: none;
