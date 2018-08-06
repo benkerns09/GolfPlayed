@@ -45,7 +45,7 @@ const setupAuth = (app) => {
     app.use(passport.initialize());
     app.use(passport.session());
 
-    app.get('/login', passport.authenticate('github'));
+    // app.get('/login', passport.authenticate('github'));
 
 
     app.get('/logout', function(req, res, next){
@@ -53,15 +53,20 @@ const setupAuth = (app) => {
         res.redirect('/');
     });
 
+    app.get('/github', passport.authenticate('github', {scope: ['email']}));
+
     app.get('/github/auth',
         passport.authenticate('github', {
+            successRedirect: '/',
             failureRedirect: '/login'
-        }),
-        (req, res) => {
-            res.redirect('/home');
-        });
-};
+        }))
+    };
+        // (req, res) => {
+        //     res.redirect('/home');
+        // });
+// };
 // ABOVE IS PROBABLY WHERE WE REDIRECT?!
+   
 
 
 const ensureAuthenticated = (req, res, next) => {
